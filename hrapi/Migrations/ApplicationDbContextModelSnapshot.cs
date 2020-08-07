@@ -92,28 +92,21 @@ namespace hrapi.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Logo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StatusID")
+                    b.Property<int?>("StatusIDStatesID")
                         .HasColumnType("int");
-
-                    b.Property<string>("TaxNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserCreated")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserUpdated")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CompanyID");
+
+                    b.HasIndex("StatusIDStatesID");
 
                     b.ToTable("companys");
                 });
@@ -131,9 +124,6 @@ namespace hrapi.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("DepartmentDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -146,7 +136,7 @@ namespace hrapi.Migrations
                     b.Property<int?>("ParentDepartmentID")
                         .HasColumnType("int");
 
-                    b.Property<int>("StatusID")
+                    b.Property<int?>("StatusIDStatesID")
                         .HasColumnType("int");
 
                     b.Property<string>("UserCreated")
@@ -158,6 +148,8 @@ namespace hrapi.Migrations
                     b.HasKey("DepartmentID");
 
                     b.HasIndex("CompanyID1");
+
+                    b.HasIndex("StatusIDStatesID");
 
                     b.ToTable("Departments");
                 });
@@ -373,11 +365,37 @@ namespace hrapi.Migrations
                     b.ToTable("staffs");
                 });
 
+            modelBuilder.Entity("hrapi.Model.States", b =>
+                {
+                    b.Property<int>("StatesID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("StateName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StatesID");
+
+                    b.ToTable("states");
+                });
+
+            modelBuilder.Entity("hrapi.Model.Companys", b =>
+                {
+                    b.HasOne("hrapi.Model.States", "StatusID")
+                        .WithMany()
+                        .HasForeignKey("StatusIDStatesID");
+                });
+
             modelBuilder.Entity("hrapi.Model.Departments", b =>
                 {
                     b.HasOne("hrapi.Model.Companys", "CompanyID")
                         .WithMany()
                         .HasForeignKey("CompanyID1");
+
+                    b.HasOne("hrapi.Model.States", "StatusID")
+                        .WithMany()
+                        .HasForeignKey("StatusIDStatesID");
                 });
 
             modelBuilder.Entity("hrapi.Model.News", b =>

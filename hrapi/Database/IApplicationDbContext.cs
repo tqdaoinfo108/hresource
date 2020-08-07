@@ -7,6 +7,7 @@ namespace hrapi.Database
 {
     public interface IApplicationDbContext
     {
+        DbSet<States> states { get; set; }
         DbSet<BookingEvent> bookingEvents { get; set; }
         DbSet<Companys> companys { get; set; }
         DbSet<Groups> groups { get; set; }

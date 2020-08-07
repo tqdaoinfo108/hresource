@@ -33,12 +33,13 @@ namespace hrapi.Repository
             return "Staff details deleted modified";
         }
 
-        public async Task<string> GenerateToken(string staffCode)
+        public async Task<string> GenerateToken(string staffCode,string token)
         {
             var staff = await _dbcontext.staffs.Where(x => x.StaffCode.Equals(staffCode)).FirstOrDefaultAsync();
             if (staff == null) return "Staff does not exists";
             // change model
-            staff.Token = System.Guid.NewGuid().ToString();
+            staff.Token = token;
+            staff.LastLogin = DateTime.Now;
             await _dbcontext.SaveChanges();
             return "Staff details successfully modified";
         }
@@ -61,12 +62,13 @@ namespace hrapi.Repository
             return staff;
         }
 
-        public async Task<string> Update(int id, Staffs staffs)
+        public async Task<string> Update(string staffCode, Staffs staffs)
         {
-            var employeeupt = await _dbcontext.staffs.Where(x => x.StaffID == id).FirstOrDefaultAsync();
-            if (employeeupt == null) return "Staff does not exists";
+            var modelUpdate = await _dbcontext.staffs.Where(x => x.StaffCode.Equals(staffCode)).FirstOrDefaultAsync();
+            if (modelUpdate == null) return "Staff does not exists";
             // change model
-
+            modelUpdate.LastLogin = DateTime.Now;
+            
             await _dbcontext.SaveChanges();
             return "Staff details successfully modified";
         }

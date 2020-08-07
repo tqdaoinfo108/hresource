@@ -3,18 +3,28 @@ using System.Threading.Tasks;
 using hrapi.Repository;
 using hrapi.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace hrapi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/authencation")]
     public class AuthenticationController : ControllerBase
     {
 
         private IStaffRepository _staffRepository;
-        public AuthenticationController(IStaffRepository staffRepository)
+        IConfiguration _configuration;
+        public AuthenticationController(IStaffRepository staffRepository, IConfiguration configuration)
         {
             _staffRepository = staffRepository;
+            _configuration = configuration;
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public async Task<ActionResult> test()
+        {
+            return Ok("Test");
         }
 
         [HttpPost]
@@ -31,10 +41,11 @@ namespace hrapi.Controllers
             {
                 return NotFound(false);
             }
+            var jwt = new JwtService(_configuration);
+            var token = jwt.GenerateSecurityToken(loginModel.userName);
 
-            _ = await _staffRepository.GenerateToken(loginModel.userName);
-
-            return Ok(true);
+            _ = await _staffRepository.GenerateToken(loginModel.userName,token);
+            return Ok(staff);
         }
     }
 }

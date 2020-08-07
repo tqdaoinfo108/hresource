@@ -11,8 +11,8 @@ namespace hrapi.Repository
         Task<List<Staffs>> GetAll();
         Task<Staffs> GetById(int id);
         Task<Staffs> GetByStaffCode(string staffCode);
-        Task<string> GenerateToken(string staffCode);
-        Task<string> Update(int id, Staffs staffs);
+        Task<string> GenerateToken(string staffCode,string token);
+        Task<string> Update(string staffCode, Staffs staffs);
         Task<string> Delete(int id);
     }
 }

@@ -11,6 +11,7 @@ namespace hrapi.Database
         {
         }
 
+        public DbSet<States> states { get; set; }
         public DbSet<BookingEvent> bookingEvents { get ; set ; }
         public DbSet<Companys> companys { get ; set ; }
         public DbSet<Groups> groups { get ; set ; }
