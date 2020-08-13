@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/dao.tq/.dotnet/store/|arch|/|tfm|",
+      "/Users/dao.tq/.nuget/packages"
+    ]
+  }
+}

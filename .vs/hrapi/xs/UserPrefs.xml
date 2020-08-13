@@ -1,44 +1,44 @@
 ﻿<Properties StartupConfiguration="{97A3D1B6-E7AC-4BB3-AD44-88F130BB2C77}|Default">
   <MonoDevelop.Ide.ItemProperties.hrapi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Migrations/20200807193532_testDB.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Services/JwtService.cs">
     <Files>
-      <File FileName="hrapi/Controllers/AuthenticationController.cs" Line="23" Column="18" />
-      <File FileName="hrapi/Controllers/StaffController.cs" Line="7" Column="18" />
-      <File FileName="hrapi/Controllers/WeatherForecastController.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Repository/StaffsRepository.cs" Line="41" Column="33" />
-      <File FileName="hrapi/Startup.cs" Line="38" Column="40" />
-      <File FileName="hrapi/Repository/ICompanyRepository.cs" Line="17" Column="1" />
-      <File FileName="hrapi/Repository/CompanyRepository.cs" Line="34" Column="71" />
-      <File FileName="hrapi/Model/Companys.cs" Line="20" Column="21" />
-      <File FileName="hrapi/Controllers/CompanyController.cs" Line="47" Column="6" />
-      <File FileName="hrapi/Repository/IStaffRepository.cs" Line="14" Column="65" />
-      <File FileName="hrapi/Model/States.cs" Line="8" Column="8" />
-      <File FileName="hrapi/Model/Departments.cs" Line="18" Column="1" />
-      <File FileName="hrapi/Model/Groups.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Model/LoginModel.cs" Line="9" Column="15" />
-      <File FileName="hrapi/Model/News.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Model/NewsCategory.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Database/ApplicationDbContext.cs" Line="14" Column="50" />
-      <File FileName="hrapi/Services/JwtService.cs" Line="8" Column="25" />
-      <File FileName="hrapi/Program.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Services/AuthenticationExtension.cs" Line="33" Column="38" />
-      <File FileName="hrapi/Model/Staffs.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Database/IApplicationDbContext.cs" Line="10" Column="9" />
-      <File FileName="hrapi/Model/BookingEvent.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Migrations/20200807193532_testDB.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Controllers/AuthenticationController.cs" Line="15" Column="50" />
+      <File FileName="hrapi/Controllers/StaffController.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Controllers/WeatherForecastController.cs" />
+      <File FileName="hrapi/Repository/StaffsRepository.cs" Line="69" Column="37" />
+      <File FileName="hrapi/Startup.cs" />
+      <File FileName="hrapi/Repository/ICompanyRepository.cs" />
+      <File FileName="hrapi/Repository/CompanyRepository.cs" />
+      <File FileName="hrapi/Model/Companys.cs" />
+      <File FileName="hrapi/Controllers/CompanyController.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Repository/IStaffRepository.cs" Line="19" Column="36" />
+      <File FileName="hrapi/Model/States.cs" />
+      <File FileName="hrapi/Model/Departments.cs" />
+      <File FileName="hrapi/Model/Groups.cs" />
+      <File FileName="hrapi/Model/LoginModel.cs" />
+      <File FileName="hrapi/Model/News.cs" />
+      <File FileName="hrapi/Model/NewsCategory.cs" />
+      <File FileName="hrapi/Database/ApplicationDbContext.cs" />
+      <File FileName="hrapi/Services/JwtService.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Program.cs" />
+      <File FileName="hrapi/Services/AuthenticationExtension.cs" />
+      <File FileName="hrapi/Model/Staffs.cs" />
+      <File FileName="hrapi/Database/IApplicationDbContext.cs" />
+      <File FileName="hrapi/Model/BookingEvent.cs" />
+      <File FileName="hrapi/Migrations/20200807193532_testDB.cs" Line="10" Column="42" />
+      <File FileName="hrapi/Controllers/HRBaseController.cs" Line="9" Column="19" />
+      <File FileName="hrapi/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="hrapi" expanded="True">
             <Node name="hrapi" expanded="True">
-              <Node name="Migrations" expanded="True">
-                <Node name="20200807193532_testDB.cs" selected="True" />
-              </Node>
-              <Node name="Model" expanded="True" />
-              <Node name="Properties" expanded="True" />
+              <Node name="Controllers" expanded="True" />
               <Node name="Repository" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="JwtService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

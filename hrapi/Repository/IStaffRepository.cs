@@ -7,6 +7,8 @@ namespace hrapi.Repository
 {
     public interface IStaffRepository
     {
+        object Claims { get; }
+
         Task<int> Create(Staffs staffs);
         Task<List<Staffs>> GetAll();
         Task<Staffs> GetById(int id);
