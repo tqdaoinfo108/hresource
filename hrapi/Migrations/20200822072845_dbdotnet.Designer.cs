@@ -10,8 +10,8 @@ using hrapi.Database;
 namespace hrapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200807193532_testDB")]
-    partial class testDB
+    [Migration("20200822072845_dbdotnet")]
+    partial class dbdotnet
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

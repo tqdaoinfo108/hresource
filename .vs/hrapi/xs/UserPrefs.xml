@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{97A3D1B6-E7AC-4BB3-AD44-88F130BB2C77}|Default">
   <MonoDevelop.Ide.ItemProperties.hrapi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Services/JwtService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Migrations/20200822072845_dbdotnet.cs">
     <Files>
-      <File FileName="hrapi/Controllers/AuthenticationController.cs" Line="15" Column="50" />
-      <File FileName="hrapi/Controllers/StaffController.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Controllers/AuthenticationController.cs" Line="17" Column="41" />
+      <File FileName="hrapi/Controllers/StaffController.cs" />
       <File FileName="hrapi/Controllers/WeatherForecastController.cs" />
-      <File FileName="hrapi/Repository/StaffsRepository.cs" Line="69" Column="37" />
+      <File FileName="hrapi/Repository/StaffsRepository.cs" Line="14" Column="1" />
       <File FileName="hrapi/Startup.cs" />
       <File FileName="hrapi/Repository/ICompanyRepository.cs" />
       <File FileName="hrapi/Repository/CompanyRepository.cs" />
       <File FileName="hrapi/Model/Companys.cs" />
-      <File FileName="hrapi/Controllers/CompanyController.cs" Line="1" Column="1" />
-      <File FileName="hrapi/Repository/IStaffRepository.cs" Line="19" Column="36" />
+      <File FileName="hrapi/Controllers/CompanyController.cs" Line="42" Column="49" />
+      <File FileName="hrapi/Repository/IStaffRepository.cs" Line="9" Column="6" />
       <File FileName="hrapi/Model/States.cs" />
       <File FileName="hrapi/Model/Departments.cs" />
       <File FileName="hrapi/Model/Groups.cs" />
@@ -19,15 +19,14 @@
       <File FileName="hrapi/Model/News.cs" />
       <File FileName="hrapi/Model/NewsCategory.cs" />
       <File FileName="hrapi/Database/ApplicationDbContext.cs" />
-      <File FileName="hrapi/Services/JwtService.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Services/JwtService.cs" />
       <File FileName="hrapi/Program.cs" />
       <File FileName="hrapi/Services/AuthenticationExtension.cs" />
       <File FileName="hrapi/Model/Staffs.cs" />
       <File FileName="hrapi/Database/IApplicationDbContext.cs" />
       <File FileName="hrapi/Model/BookingEvent.cs" />
-      <File FileName="hrapi/Migrations/20200807193532_testDB.cs" Line="10" Column="42" />
-      <File FileName="hrapi/Controllers/HRBaseController.cs" Line="9" Column="19" />
-      <File FileName="hrapi/appsettings.json" Line="1" Column="1" />
+      <File FileName="hrapi/appsettings.json" Line="3" Column="148" />
+      <File FileName="hrapi/Migrations/20200822072845_dbdotnet.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -35,10 +34,11 @@
           <Node name="hrapi" expanded="True">
             <Node name="hrapi" expanded="True">
               <Node name="Controllers" expanded="True" />
+              <Node name="Migrations" selected="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Properties" expanded="True" />
               <Node name="Repository" expanded="True" />
-              <Node name="Services" expanded="True">
-                <Node name="JwtService.cs" selected="True" />
-              </Node>
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -48,9 +48,7 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/dao.tq/Projects/hrapi/hresource/hrapi/Controllers/CompanyController.cs" relfile="hrapi/Controllers/CompanyController.cs" line="43" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

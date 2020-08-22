@@ -17,6 +17,8 @@ namespace hrapi.Repository
             this._dbcontext = dbcontext;
         }
 
+        public object Claims => throw new NotImplementedException();
+
         public async Task<int> Create(Staffs staffs)
         {
             _dbcontext.staffs.Add(staffs);

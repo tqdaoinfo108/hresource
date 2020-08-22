@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace hrapi.Migrations
 {
-    public partial class testDB : Migration
+    public partial class dbdotnet : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
