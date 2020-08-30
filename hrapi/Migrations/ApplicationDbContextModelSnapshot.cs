@@ -19,60 +19,6 @@ namespace hrapi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("hrapi.Model.BookingEvent", b =>
-                {
-                    b.Property<int>("EventID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ActionUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColorCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CompanyID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsReminded")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("StatusID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TimeEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("TimeStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserCreatedID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserHostID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserUpdatedID")
-                        .HasColumnType("int");
-
-                    b.HasKey("EventID");
-
-                    b.ToTable("bookingEvents");
-                });
-
             modelBuilder.Entity("hrapi.Model.Companys", b =>
                 {
                     b.Property<int>("CompanyID")
@@ -89,7 +35,7 @@ namespace hrapi.Migrations
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Logo")
@@ -98,15 +44,10 @@ namespace hrapi.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StatusIDStatesID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserUpdated")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("States")
+                        .HasColumnType("bit");
 
                     b.HasKey("CompanyID");
-
-                    b.HasIndex("StatusIDStatesID");
 
                     b.ToTable("companys");
                 });
@@ -118,10 +59,10 @@ namespace hrapi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CompanyID1")
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DepartmentDescription")
@@ -136,58 +77,14 @@ namespace hrapi.Migrations
                     b.Property<int?>("ParentDepartmentID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StatusIDStatesID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserCreated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserUpdated")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DepartmentID");
 
-                    b.HasIndex("CompanyID1");
-
-                    b.HasIndex("StatusIDStatesID");
+                    b.HasIndex("CompanyID");
 
                     b.ToTable("Departments");
-                });
-
-            modelBuilder.Entity("hrapi.Model.Groups", b =>
-                {
-                    b.Property<int>("GroupID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CompanyID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("GroupDescription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GroupName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("StatusID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserCreated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserUpdated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("GroupID");
-
-                    b.ToTable("groups");
                 });
 
             modelBuilder.Entity("hrapi.Model.News", b =>
@@ -197,36 +94,35 @@ namespace hrapi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CategoryNewsID1")
+                    b.Property<int?>("CategoryNewsID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShortDescription")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsSeen")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("StatusID")
+                    b.Property<int?>("StaffID")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserCreated")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserCreated")
+                        .HasColumnType("int");
 
-                    b.Property<string>("UserUpdated")
+                    b.Property<string>("UserCreatedName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("NewsID");
 
-                    b.HasIndex("CategoryNewsID1");
+                    b.HasIndex("CategoryNewsID");
+
+                    b.HasIndex("StaffID");
 
                     b.ToTable("news");
                 });
@@ -244,17 +140,11 @@ namespace hrapi.Migrations
                     b.Property<string>("CategoryNewsTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyID1")
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
 
                     b.Property<int>("StatusID")
                         .HasColumnType("int");
@@ -262,12 +152,9 @@ namespace hrapi.Migrations
                     b.Property<string>("UserCreated")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserUpdated")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("CategoryNewsID");
 
-                    b.HasIndex("CompanyID1");
+                    b.HasIndex("CompanyID");
 
                     b.ToTable("newsCategories");
                 });
@@ -279,13 +166,10 @@ namespace hrapi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CompanyID")
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PositionDescription")
@@ -294,16 +178,12 @@ namespace hrapi.Migrations
                     b.Property<string>("PositionName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StatusID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserCreated")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserUpdated")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("PositionID");
+
+                    b.HasIndex("CompanyID");
 
                     b.ToTable("positions");
                 });
@@ -315,16 +195,16 @@ namespace hrapi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CompanysIDCompanyID")
+                    b.Property<string>("Avatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("DepartmentsIDDepartmentID")
+                    b.Property<int?>("DepartmentsID")
                         .HasColumnType("int");
 
                     b.Property<string>("FullName")
@@ -336,7 +216,7 @@ namespace hrapi.Migrations
                     b.Property<string>("Passwords")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PositionsIDPositionID")
+                    b.Property<int?>("PositionsID")
                         .HasColumnType("int");
 
                     b.Property<string>("StaffCode")
@@ -348,19 +228,13 @@ namespace hrapi.Migrations
                     b.Property<string>("Token")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserCreated")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserUpdated")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("StaffID");
 
-                    b.HasIndex("CompanysIDCompanyID");
+                    b.HasIndex("CompanyID");
 
-                    b.HasIndex("DepartmentsIDDepartmentID");
+                    b.HasIndex("DepartmentsID");
 
-                    b.HasIndex("PositionsIDPositionID");
+                    b.HasIndex("PositionsID");
 
                     b.ToTable("staffs");
                 });
@@ -380,51 +254,51 @@ namespace hrapi.Migrations
                     b.ToTable("states");
                 });
 
-            modelBuilder.Entity("hrapi.Model.Companys", b =>
-                {
-                    b.HasOne("hrapi.Model.States", "StatusID")
-                        .WithMany()
-                        .HasForeignKey("StatusIDStatesID");
-                });
-
             modelBuilder.Entity("hrapi.Model.Departments", b =>
                 {
-                    b.HasOne("hrapi.Model.Companys", "CompanyID")
+                    b.HasOne("hrapi.Model.Companys", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyID1");
-
-                    b.HasOne("hrapi.Model.States", "StatusID")
-                        .WithMany()
-                        .HasForeignKey("StatusIDStatesID");
+                        .HasForeignKey("CompanyID");
                 });
 
             modelBuilder.Entity("hrapi.Model.News", b =>
                 {
-                    b.HasOne("hrapi.Model.NewsCategory", "CategoryNewsID")
+                    b.HasOne("hrapi.Model.NewsCategory", "CategoryNews")
                         .WithMany()
-                        .HasForeignKey("CategoryNewsID1");
+                        .HasForeignKey("CategoryNewsID");
+
+                    b.HasOne("hrapi.Model.Staffs", "Staff")
+                        .WithMany()
+                        .HasForeignKey("StaffID");
                 });
 
             modelBuilder.Entity("hrapi.Model.NewsCategory", b =>
                 {
-                    b.HasOne("hrapi.Model.Companys", "CompanyID")
+                    b.HasOne("hrapi.Model.Companys", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyID1");
+                        .HasForeignKey("CompanyID");
+                });
+
+            modelBuilder.Entity("hrapi.Model.Positions", b =>
+                {
+                    b.HasOne("hrapi.Model.Companys", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyID");
                 });
 
             modelBuilder.Entity("hrapi.Model.Staffs", b =>
                 {
-                    b.HasOne("hrapi.Model.Companys", "CompanysID")
+                    b.HasOne("hrapi.Model.Companys", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanysIDCompanyID");
+                        .HasForeignKey("CompanyID");
 
-                    b.HasOne("hrapi.Model.Departments", "DepartmentsID")
+                    b.HasOne("hrapi.Model.Departments", "Departments")
                         .WithMany()
-                        .HasForeignKey("DepartmentsIDDepartmentID");
+                        .HasForeignKey("DepartmentsID");
 
-                    b.HasOne("hrapi.Model.Positions", "PositionsID")
+                    b.HasOne("hrapi.Model.Positions", "Positions")
                         .WithMany()
-                        .HasForeignKey("PositionsIDPositionID");
+                        .HasForeignKey("PositionsID");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,6 +10,7 @@ namespace hrapi.Repository
         Task<int> Create(Companys companys);
         Task<int> Update(int id,Companys companys);
         Task<int> Delete(int id);
+        Task<Companys> GetById(int id);
         Task<List<Companys>> GetAll();
 
     }

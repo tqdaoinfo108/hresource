@@ -64,15 +64,15 @@ namespace hrapi.Repository
             return staff;
         }
 
-        public async Task<string> Update(string staffCode, Staffs staffs)
+        public async Task<int> Update(string staffCode, Staffs staffs)
         {
             var modelUpdate = await _dbcontext.staffs.Where(x => x.StaffCode.Equals(staffCode)).FirstOrDefaultAsync();
-            if (modelUpdate == null) return "Staff does not exists";
+            if (modelUpdate == null) return 0;
             // change model
             modelUpdate.LastLogin = DateTime.Now;
             
             await _dbcontext.SaveChanges();
-            return "Staff details successfully modified";
+            return modelUpdate.StaffID;
         }
 
     }

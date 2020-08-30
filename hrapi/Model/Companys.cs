@@ -1,12 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hrapi.Model
 {
     public class Companys
     {
-        public Companys() {  }
-
         [Key]
         public int CompanyID { get; set; }
         public string Logo { get; set; }
@@ -14,10 +13,9 @@ namespace hrapi.Model
         public string CompanyDescription { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
-        public System.DateTime DateCreated { get; set; }
-        public string UserUpdated { get; set; }
+        public Nullable<System.DateTime> DateCreated { get; set; }
 
-        public States StatusID { get; set; }
+        public bool States { get; set; }
 
     }
 
@@ -30,6 +28,6 @@ namespace hrapi.Model
         public string Phone { get; set; }
         public int StatusID { get; set; }
         public System.DateTime DateCreated { get; set; }
-}
+    }
 }
 

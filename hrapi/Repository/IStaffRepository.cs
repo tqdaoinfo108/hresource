@@ -12,7 +12,7 @@ namespace hrapi.Repository
         Task<Staffs> GetById(int id);
         Task<Staffs> GetByStaffCode(string staffCode);
         Task<string> GenerateToken(string staffCode,string token);
-        Task<string> Update(string staffCode, Staffs staffs);
+        Task<int> Update(string staffCode, Staffs staffs);
         Task<string> Delete(int id);
     }
 }

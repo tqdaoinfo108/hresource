@@ -12,9 +12,7 @@ namespace hrapi.Database
         }
 
         public DbSet<States> states { get; set; }
-        public DbSet<BookingEvent> bookingEvents { get ; set ; }
         public DbSet<Companys> companys { get ; set ; }
-        public DbSet<Groups> groups { get ; set ; }
         public DbSet<News> news { get ; set ; }
         public DbSet<NewsCategory> newsCategories { get ; set ; }
         public DbSet<Positions> positions { get ; set ; }
@@ -23,6 +21,65 @@ namespace hrapi.Database
         public new async Task<int> SaveChanges()
         {
             return await base.SaveChangesAsync();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Companys>().HasKey(table => new {
+            //    table.StStatesID,
+            //    table.States
+            //});
+
+            //modelBuilder.Entity<News>()
+            //            .HasOne(e => e.Staff)
+            //            .WithMany()
+            //            .IsRequired(false);
+
+            //modelBuilder.Entity<News>()
+            //            .HasOne(e => e.CategoryNews)
+            //            .WithMany()
+            //            .IsRequired(false);
+            ////modelBuilder.Entity<Departments>().HasKey(table => new {
+            ////    table.,
+            ////    table.Company
+            ////});
+
+            //modelBuilder.Entity<News>().HasKey(table => new {
+            //    table.StaffID,
+            //    table.Staff
+            //});
+
+            //modelBuilder.Entity<News>().HasKey(table => new {
+            //    table.CategoryNewsID,
+            //    table.CategoryNews
+            //});
+
+            //modelBuilder.Entity<NewsCategory>().HasKey(table => new {
+            //    table.CompanyID,
+            //    table.Company
+            //});
+
+            //modelBuilder.Entity<Positions>().HasKey(table => new {
+            //    table.CompanyID,
+            //    table.Company
+            //});
+
+            //modelBuilder.Entity<Staffs>().HasKey(table => new {
+            //    table.CompanyID,
+            //    table.Company
+            //});
+
+            //modelBuilder.Entity<Staffs>().HasKey(table => new {
+            //    table.PositionsID,
+            //    table.Positions
+            //});
+
+            //modelBuilder.Entity<Staffs>().HasKey(table => new {
+            //    table.DepartmentsID,
+            //    table.Departments
+            //});
+            base.OnModelCreating(modelBuilder);
+
         }
     }
 }

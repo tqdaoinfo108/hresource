@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using hrapi.Database;
 using hrapi.Model;
@@ -33,6 +34,12 @@ namespace hrapi.Repository
         {
             var value = await _dbcontext.companys.ToListAsync<Companys>();
             return value;
+        }
+
+        public async Task<Companys> GetById(int id)
+        {
+            var companys = await _dbcontext.companys.Where(x => x.CompanyID == id).FirstOrDefaultAsync();
+            return companys;
         }
 
         public async Task<int> Update(int id, Companys companys)

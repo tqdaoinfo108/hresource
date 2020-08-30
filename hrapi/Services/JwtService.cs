@@ -5,7 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
 
-public class JwtService 
+public class JwtService
 {
     private readonly string _secret;
     private readonly string _expDate;
@@ -16,7 +16,7 @@ public class JwtService
         _expDate = config.GetSection("JwtConfig").GetSection("expirationInMinutes").Value;
     }
 
-    public string GenerateSecurityToken(string email)
+    public string GenerateSecurityToken(string email,string company, string id, string name)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_secret);
@@ -24,7 +24,11 @@ public class JwtService
         {
             Subject = new ClaimsIdentity(new[]
             {
-                    new Claim(ClaimTypes.Email, email)
+                    new Claim(ClaimTypes.Email, email),
+                    new Claim(ClaimTypes.NameIdentifier, id),
+                    new Claim(ClaimTypes.Name, name),
+                    new Claim(ClaimTypes.PostalCode, company)
+
                 })
         ,
             Expires = DateTime.UtcNow.AddMinutes(double.Parse(_expDate)),

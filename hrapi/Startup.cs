@@ -33,6 +33,8 @@ namespace hrapi
             // CRUD
             services.AddTransient<IStaffRepository, StaffsRepository>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
+            services.AddTransient<INewsRepository, NewsRepository>();
+
 
             // authentication
             services.AddTokenAuthentication(Configuration);
@@ -47,6 +49,14 @@ namespace hrapi
             {
                 app.UseDeveloperExceptionPage();
             }
+            // Shows UseCors with CorsPolicyBuilder.
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseRouting();
 

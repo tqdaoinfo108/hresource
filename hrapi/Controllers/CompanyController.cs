@@ -6,6 +6,7 @@ using hrapi.Model;
 using hrapi.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,6 +36,21 @@ namespace hrapi.Controllers
                 DateCreated = DateTime.Now
             });
             return Ok(id);
+        }
+
+        [HttpGet]
+        [Route("get")]
+        public async Task<ActionResult> get()
+        {
+            var companyID = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            if (companyID == null)
+            {
+                return NotFound("");
+            }
+            var value = await _companyRepository.GetById(Int32.Parse(companyID));
+
+            return Ok(value);
         }
 
         [HttpGet]

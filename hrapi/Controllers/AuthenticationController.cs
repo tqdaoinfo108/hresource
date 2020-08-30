@@ -27,6 +27,7 @@ namespace hrapi.Controllers
             return Ok("Test");
         }
 
+        
         [HttpPost]
         [Route("login")]
         public async Task<ActionResult> login([FromBody] LoginModel loginModel)
@@ -34,15 +35,15 @@ namespace hrapi.Controllers
             var staff = await _staffRepository.GetByStaffCode(loginModel.userName);
             if(staff == null)
             {
-                return NotFound(false);
+                return NotFound("");
             }
 
             if (!staff.Passwords.Equals(loginModel.passWord))
             {
-                return NotFound(false);
+                return NotFound("");
             }
             var jwt = new JwtService(_configuration);
-            var token = jwt.GenerateSecurityToken(loginModel.userName);
+            var token = jwt.GenerateSecurityToken(staff.StaffCode, staff.CompanyID.ToString(),staff.StaffID.ToString(), staff.FullName);
 
             _ = await _staffRepository.GenerateToken(loginModel.userName,token);
             return Ok(staff);
