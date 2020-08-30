@@ -27,7 +27,7 @@ namespace hrapi.Controllers {
             if (valueId == null)
             {
                 return NotFound("");
-            }
+            }   
             var value = await _staffRepository.GetById(Int32.Parse(valueId));
             
             return Ok(value);
@@ -46,6 +46,22 @@ namespace hrapi.Controllers {
         public async Task<ActionResult> Update(Staffs staffs)
         {
             var value = await _staffRepository.Update(staffs.StaffCode, staffs);
+            return Ok(value);
+        }
+
+        [HttpGet]
+        [Route("delete")]
+        public async Task<ActionResult> Delete([FromQuery] int id)
+        {
+            var value = await _staffRepository.Delete(id);
+            return Ok(value);
+        }
+
+        [HttpGet]
+        [Route("getall")]
+        public async Task<ActionResult> GetAll()
+        {
+            var value = await _staffRepository.GetAll();
             return Ok(value);
         }
     }

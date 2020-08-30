@@ -311,7 +311,6 @@
 /Users/daotq/Documents/GitHub/hresource/hrapi/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/daotq/Documents/GitHub/hresource/hrapi/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.0/System.Runtime.Caching.dll
 /Users/daotq/Documents/GitHub/hresource/hrapi/bin/Debug/netcoreapp3.1/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-/Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.csprojAssemblyReference.cache
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.AssemblyInfoInputs.cache
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.AssemblyInfo.cs
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.csproj.CoreCompileInputs.cache

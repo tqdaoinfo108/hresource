@@ -13,6 +13,14 @@ namespace hrapi.Database
         DbSet<NewsCategory> newsCategories { get; set; }
         DbSet<Positions> positions { get; set; }
         DbSet<Staffs> staffs { get; set; }
+        DbSet<Departments> departments { get; set; }
+
+        DbSet<ToDoLists> toDoLists{ get; set; }
+        DbSet<Comments> comments { get; set; }
+        DbSet<Events> events { get; set; }
+        DbSet<Catagories> Catagories { get; set; }
+        DbSet<EventCatagories> eventCatagories { get; set; }
+        DbSet<EnventsStaff> enventsStaff { get; set; }
 
         Task<int> SaveChanges();
     }
