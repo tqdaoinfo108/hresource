@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using hrapi.Model;
+using hrapi.Model.DAO;
 using hrapi.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +17,19 @@ namespace hrapi.Controllers {
     public class StaffController : ControllerBase
     {
         private IStaffRepository _staffRepository;
-        public StaffController(IStaffRepository staffRepository)
+        private IDepartmentRepository _departmentRepository;
+        private ICompanyRepository _companyRepository;
+        private IPositionReponsitory _positionReponsitory;
+
+
+        public StaffController(IStaffRepository staffRepository,
+            IDepartmentRepository departmentRepository, ICompanyRepository companyRepository,
+            IPositionReponsitory positionReponsitory)
         {
             _staffRepository = staffRepository;
+            _departmentRepository = departmentRepository;
+            _companyRepository = companyRepository;
+            _positionReponsitory = positionReponsitory;
         }
 
         [HttpGet]
@@ -62,7 +75,30 @@ namespace hrapi.Controllers {
         public async Task<ActionResult> GetAll()
         {
             var value = await _staffRepository.GetAll();
-            return Ok(value);
+            var lstDepartment = await _departmentRepository.GetAll();
+            var lstCompany = await _companyRepository.GetAll();
+            var lstPosition = await _positionReponsitory.GetAll();
+
+            var valueFull = new List<StaffReponseFullField>();
+            foreach(var item in value)
+            {
+                var itm = new StaffReponseFullField
+                {
+                    StaffID = item.StaffID,
+                    Avatar = item.Avatar,
+                    StaffCode = item.StaffCode,
+                    FullName = item.FullName,
+                    StatusID = item.StatusID,
+                    DateCreated = item.DateCreated,
+                    LastLogin = item.LastLogin,
+                    CompanyName = lstCompany.Where(x => x.CompanyID == item.CompanyID).FirstOrDefault().CompanyName,
+                    DepartmentsName = lstDepartment.Where(x => x.DepartmentID == item.DepartmentsID).FirstOrDefault().DepartmentName,
+                    PositionsName = lstPosition.Where(x => x.PositionID == item.PositionsID).FirstOrDefault().PositionName
+                };
+
+                valueFull.Add(itm);
+            }
+            return Ok(valueFull);
         }
     }
 }

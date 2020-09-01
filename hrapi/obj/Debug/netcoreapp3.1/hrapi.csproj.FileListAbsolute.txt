@@ -322,3 +322,4 @@
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.dll
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.pdb
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.genruntimeconfig.cache
+/Users/daotq/Documents/GitHub/hresource/hrapi/obj/Debug/netcoreapp3.1/hrapi.csprojAssemblyReference.cache

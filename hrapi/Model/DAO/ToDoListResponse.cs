@@ -1,11 +1,8 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace hrapi.Model
+namespace hrapi.Model.DAO
 {
-    public class ToDoLists
+    public class ToDoListResponse
     {
-        [Key]
         public int ToDoListID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -13,13 +10,12 @@ namespace hrapi.Model
         public int Priority { get; set; }
         public Nullable<System.DateTime> TimeStart { get; set; }
         public Nullable<System.DateTime> TimeEnd { get; set; }
-        public int UserCreatedID { get; set; }
+        public string UserCreatedName { get; set; }
         public Nullable<System.DateTime> DateCreated { get; set; }
-        public int StaffAssignedID { get; set; }
+        public string StaffAssignedName { get; set; }
         public bool IsComplete { get; set; }
 
-        public int? DepartmentsID { get; set; }
-        public Departments Departments { get; set; }
+        public string DepartmentName { get; set; }
     }
+
 }
-    

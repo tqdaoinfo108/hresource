@@ -17,6 +17,17 @@ namespace hrapi.Repository
             _dbcontext = dbcontext;
         }
 
+        public async Task<bool> ChangeStateTodoList(int id)
+        {
+            var modelUpdate = await _dbcontext.toDoLists.Where(x => x.ToDoListID == id).FirstOrDefaultAsync();
+            if (modelUpdate == null) return false ;
+            // change model
+            modelUpdate.IsComplete = !modelUpdate.IsComplete;
+
+            await _dbcontext.SaveChanges();
+            return modelUpdate.IsComplete;
+        }
+
         public async Task<int> Create(ToDoLists value)
         {
             _dbcontext.toDoLists.Add(value);
@@ -45,9 +56,9 @@ namespace hrapi.Repository
             return item;
         }
 
-        public async Task<int> Update(int id, ToDoLists value)
+        public async Task<int> Update( ToDoLists value)
         {
-            var modelUpdate = await _dbcontext.toDoLists.Where(x => x.ToDoListID == id).FirstOrDefaultAsync();
+            var modelUpdate = await _dbcontext.toDoLists.Where(x => x.ToDoListID == value.ToDoListID).FirstOrDefaultAsync();
             if (modelUpdate == null) return 0;
             // change model
             modelUpdate = value;

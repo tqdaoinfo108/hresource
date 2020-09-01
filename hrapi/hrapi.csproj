@@ -29,5 +29,6 @@
     <Folder Include="Migrations\" />
     <Folder Include="Repository\" />
     <Folder Include="Services\" />
+    <Folder Include="Model\DAO\" />
   </ItemGroup>
 </Project>
