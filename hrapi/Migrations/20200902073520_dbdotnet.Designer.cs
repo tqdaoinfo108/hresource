@@ -10,7 +10,7 @@ using hrapi.Database;
 namespace hrapi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200901093939_dbdotnet")]
+    [Migration("20200902073520_dbdotnet")]
     partial class dbdotnet
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -193,10 +193,10 @@ namespace hrapi.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CompanyID")
+                    b.Property<int>("CompanyID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("DateCreated")
+                    b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -205,21 +205,19 @@ namespace hrapi.Migrations
                     b.Property<int>("StatusID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("TimeEnd")
+                    b.Property<DateTime>("TimeEnd")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("TimeStart")
+                    b.Property<DateTime>("TimeStart")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserCreatedID")
+                    b.Property<int>("UserHostID")
                         .HasColumnType("int");
 
                     b.HasKey("EventID");
-
-                    b.HasIndex("CompanyID");
 
                     b.ToTable("events");
                 });
@@ -339,6 +337,9 @@ namespace hrapi.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateOut")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("DepartmentsID")
@@ -476,13 +477,6 @@ namespace hrapi.Migrations
                     b.HasOne("hrapi.Model.Events", "Events")
                         .WithMany()
                         .HasForeignKey("EventsEventID");
-                });
-
-            modelBuilder.Entity("hrapi.Model.Events", b =>
-                {
-                    b.HasOne("hrapi.Model.Companys", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyID");
                 });
 
             modelBuilder.Entity("hrapi.Model.News", b =>

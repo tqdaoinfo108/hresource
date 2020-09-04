@@ -7,15 +7,13 @@ namespace hrapi.Model
     {
         [Key]
         public int EventID { get; set; }
+        public int CompanyID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int StatusID { get; set; }
-        public Nullable<System.DateTime> TimeStart { get; set; }
-        public Nullable<System.DateTime> TimeEnd { get; set; }
-        public int UserCreatedID { get; set; }
-        public Nullable<System.DateTime> DateCreated { get; set; }
-
-        public int? CompanyID { get; set; }
-        public Companys Company { get; set; }
+        public System.DateTime TimeStart { get; set; }
+        public System.DateTime TimeEnd { get; set; }
+        public int UserHostID { get; set; }
+        public System.DateTime DateCreated { get; set; }
     }
 }

@@ -36,6 +36,7 @@ namespace hrapi
             services.AddTransient<INewsRepository, NewsRepository>();
             services.AddTransient<IDepartmentRepository, DepartmentRepository>();
             services.AddTransient<IPositionReponsitory, PositionReponsitory>();
+            services.AddTransient<IToDoListsRepository, ToDoListsRepository>();
 
             // authentication
             services.AddTokenAuthentication(Configuration);

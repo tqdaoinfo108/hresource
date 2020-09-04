@@ -13,6 +13,5 @@ namespace hrapi.Repository
         Task<ToDoLists> GetById(int id);
         Task<List<ToDoLists>> GetAll();
         Task<bool> ChangeStateTodoList(int id);
-
     }
 }

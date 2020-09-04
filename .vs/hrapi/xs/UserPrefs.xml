@@ -1,29 +1,45 @@
 ﻿<Properties StartupConfiguration="{97A3D1B6-E7AC-4BB3-AD44-88F130BB2C77}|Default">
   <MonoDevelop.Ide.ItemProperties.hrapi PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Controllers/ToDoListController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="hrapi/Repository/ICatagoriesRepository.cs">
     <Files>
-      <File FileName="hrapi/Controllers/ToDoListController.cs" Line="81" Column="42" />
-      <File FileName="hrapi/Repository/IToDoListsRepository.cs" Line="11" Column="19" />
-      <File FileName="hrapi/Repository/ToDoListsRepository.cs" Line="61" Column="101" />
-      <File FileName="hrapi/Model/DAO/StaffReponseFullField.cs" Line="9" Column="1" />
-      <File FileName="hrapi/Model/Staffs.cs" Line="10" Column="41" />
-      <File FileName="hrapi/Repository/CompanyRepository.cs" Line="41" Column="59" />
-      <File FileName="hrapi/Model/Companys.cs" Line="12" Column="34" />
-      <File FileName="hrapi/Model/Events.cs" Line="19" Column="2" />
-      <File FileName="hrapi/Model/DAO/ToDoListResponse.cs" Line="17" Column="1" />
+      <File FileName="hrapi/Repository/ToDoListsRepository.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Model/DAO/StaffReponseFullField.cs" />
+      <File FileName="hrapi/Repository/CompanyRepository.cs" />
+      <File FileName="hrapi/Model/Companys.cs" />
+      <File FileName="hrapi/Services/GoogleServices.cs" />
+      <File FileName="hrapi/google_services.json" />
+      <File FileName="hrapi/Controllers/DashboardController.cs" Line="78" Column="86" />
+      <File FileName="hrapi/Controllers/DepartmentsController.cs" />
+      <File FileName="hrapi/Controllers/PositionsController.cs" />
+      <File FileName="hrapi/Controllers/CompanyController.cs" />
+      <File FileName="hrapi/Database/ApplicationDbContext.cs" />
+      <File FileName="hrapi/Database/IApplicationDbContext.cs" />
+      <File FileName="hrapi/Model/ToDoLists.cs" />
+      <File FileName="hrapi/Controllers/StaffController.cs" Line="104" Column="1" />
+      <File FileName="hrapi/Controllers/ToDoListController.cs" />
+      <File FileName="hrapi/Model/Staffs.cs" />
+      <File FileName="hrapi/Services/JwtService.cs" />
+      <File FileName="hrapi/Model/DAO/DepartmentRespones.cs" />
+      <File FileName="hrapi/Model/DAO/ToDoListResponse.cs" />
+      <File FileName="hrapi/Controllers/EventController.cs" Line="13" Column="1" />
+      <File FileName="hrapi/Model/Events.cs" Line="16" Column="28" />
+      <File FileName="hrapi/Model/DAO/ShowEvent.cs" Line="11" Column="1" />
+      <File FileName="hrapi/Repository/CatagoriesRepositoryImpl.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Repository/EventRepositoryImpl.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Repository/EventStaffRepositoryImpl.cs" Line="1" Column="1" />
+      <File FileName="hrapi/Repository/ICatagoriesRepository.cs" Line="16" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="hrapi" expanded="True">
             <Node name="hrapi" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="ToDoListController.cs" selected="True" />
+              <Node name="Controllers" expanded="True" />
+              <Node name="Model" expanded="True" />
+              <Node name="Repository" expanded="True">
+                <Node name="ICatagoriesRepository.cs" selected="True" />
               </Node>
-              <Node name="Model" expanded="True">
-                <Node name="DAO" expanded="True" />
-              </Node>
-              <Node name="Repository" expanded="True" />
+              <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -33,7 +49,9 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/daotq/Documents/GitHub/hresource/hrapi/Controllers/DashboardController.cs" relfile="hrapi/Controllers/DashboardController.cs" line="108" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

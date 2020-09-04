@@ -42,6 +42,26 @@ namespace hrapi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "events",
+                columns: table => new
+                {
+                    EventID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyID = table.Column<int>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    StatusID = table.Column<int>(nullable: false),
+                    TimeStart = table.Column<DateTime>(nullable: false),
+                    TimeEnd = table.Column<DateTime>(nullable: false),
+                    UserHostID = table.Column<int>(nullable: false),
+                    DateCreated = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_events", x => x.EventID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "states",
                 columns: table => new
                 {
@@ -73,32 +93,6 @@ namespace hrapi.Migrations
                     table.PrimaryKey("PK_departments", x => x.DepartmentID);
                     table.ForeignKey(
                         name: "FK_departments_companys_CompanyID",
-                        column: x => x.CompanyID,
-                        principalTable: "companys",
-                        principalColumn: "CompanyID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "events",
-                columns: table => new
-                {
-                    EventID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    StatusID = table.Column<int>(nullable: false),
-                    TimeStart = table.Column<DateTime>(nullable: true),
-                    TimeEnd = table.Column<DateTime>(nullable: true),
-                    UserCreatedID = table.Column<int>(nullable: false),
-                    DateCreated = table.Column<DateTime>(nullable: true),
-                    CompanyID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_events", x => x.EventID);
-                    table.ForeignKey(
-                        name: "FK_events_companys_CompanyID",
                         column: x => x.CompanyID,
                         principalTable: "companys",
                         principalColumn: "CompanyID",
@@ -153,6 +147,33 @@ namespace hrapi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "eventCatagories",
+                columns: table => new
+                {
+                    EventCatagoriesID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventID = table.Column<int>(nullable: true),
+                    EventsEventID = table.Column<int>(nullable: true),
+                    CatagoriesID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_eventCatagories", x => x.EventCatagoriesID);
+                    table.ForeignKey(
+                        name: "FK_eventCatagories_Catagories_CatagoriesID",
+                        column: x => x.CatagoriesID,
+                        principalTable: "Catagories",
+                        principalColumn: "CatagoriesID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_eventCatagories_events_EventsEventID",
+                        column: x => x.EventsEventID,
+                        principalTable: "events",
+                        principalColumn: "EventID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "toDoLists",
                 columns: table => new
                 {
@@ -182,33 +203,6 @@ namespace hrapi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "eventCatagories",
-                columns: table => new
-                {
-                    EventCatagoriesID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EventID = table.Column<int>(nullable: true),
-                    EventsEventID = table.Column<int>(nullable: true),
-                    CatagoriesID = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_eventCatagories", x => x.EventCatagoriesID);
-                    table.ForeignKey(
-                        name: "FK_eventCatagories_Catagories_CatagoriesID",
-                        column: x => x.CatagoriesID,
-                        principalTable: "Catagories",
-                        principalColumn: "CatagoriesID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_eventCatagories_events_EventsEventID",
-                        column: x => x.EventsEventID,
-                        principalTable: "events",
-                        principalColumn: "EventID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "staffs",
                 columns: table => new
                 {
@@ -220,6 +214,7 @@ namespace hrapi.Migrations
                     FullName = table.Column<string>(nullable: true),
                     StatusID = table.Column<int>(nullable: false),
                     DateCreated = table.Column<DateTime>(nullable: true),
+                    DateOut = table.Column<DateTime>(nullable: true),
                     LastLogin = table.Column<DateTime>(nullable: true),
                     Token = table.Column<string>(nullable: true),
                     CompanyID = table.Column<int>(nullable: true),
@@ -359,11 +354,6 @@ namespace hrapi.Migrations
                 name: "IX_eventCatagories_EventsEventID",
                 table: "eventCatagories",
                 column: "EventsEventID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_events_CompanyID",
-                table: "events",
-                column: "CompanyID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_news_CategoryNewsID",

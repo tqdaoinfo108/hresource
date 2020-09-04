@@ -14,6 +14,8 @@ namespace hrapi.Model
         public string FullName { get; set; }
         public int StatusID { get; set; }
         public Nullable<System.DateTime>  DateCreated { get; set; }
+        public Nullable<System.DateTime> DateOut { get; set; }
+
         public Nullable<System.DateTime> LastLogin { get; set; }
         public string Token { get; set; }
 

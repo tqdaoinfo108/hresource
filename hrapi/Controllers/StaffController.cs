@@ -50,6 +50,7 @@ namespace hrapi.Controllers {
         [Route("create")]
         public async Task<ActionResult> Create(Staffs staffs)
         {
+            staffs.DateCreated = DateTime.Now;
             var value = await _staffRepository.Create(staffs);
             return Ok(value);
         }

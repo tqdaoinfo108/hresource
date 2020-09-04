@@ -268,3 +268,6 @@
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Release/netcoreapp3.1/hrapi.dll
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Release/netcoreapp3.1/hrapi.pdb
 /Users/daotq/Documents/GitHub/hresource/hrapi/obj/Release/netcoreapp3.1/hrapi.genruntimeconfig.cache
+/Users/daotq/Documents/GitHub/hresource/hrapi/bin/Release/netcoreapp3.1/google_services.json
+/Users/daotq/Documents/GitHub/hresource/hrapi/bin/Release/netcoreapp3.1/CorePush.dll
+/Users/daotq/Documents/GitHub/hresource/hrapi/bin/Release/netcoreapp3.1/BouncyCastle.Crypto.dll

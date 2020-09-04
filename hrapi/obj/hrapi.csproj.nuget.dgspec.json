@@ -40,6 +40,10 @@
               "target": "Package",
               "version": "[10.0.0, )"
             },
+            "CorePush": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.6, )"
